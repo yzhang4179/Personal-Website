@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yixin Zhang</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Yixin Zhang is a robotics master's student and robot learning researcher at Georgia Tech.">
+    <meta name="keywords" content="Yixin Zhang,Georgia Tech,Robotics,Robot Learning,Imitation Learning,Planning,Diffusion Models,Machine Learning">
+    <meta property="og:title" content="Yixin Zhang">
+    <meta property="og:description" content="Robotics master's student at Georgia Tech working on generative algorithms for long-horizon imitation learning and planning.">
+    <meta property="og:image" content="pics/zhang7.png">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="static/img/favicon-gt.ico">
+
+    <style>
+        :root {
+            --ink: #24313f;
+            --muted: #657181;
+            --line: #dde2e7;
+            --paper: #ffffff;
+            --soft: #f5f6f2;
+            --blue: #003057;
+            --gold: #b3a369;
+            --link: #8d5638;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--soft);
+            color: var(--ink);
+            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .site-shell {
+            max-width: 940px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.96);
+            min-height: 100vh;
+        }
+
+        .hero {
+            padding: 28px 34px 16px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 68% 46%;
+            border: 6px solid #fff;
+            box-shadow: 0 8px 22px rgba(36, 49, 63, 0.18);
+            background: #fff;
+        }
+
+        .name {
+            margin: 0 0 6px;
+            color: var(--blue);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .affiliation {
+            margin: 0 0 12px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-list i {
+            width: 16px;
+            margin-right: 5px;
+            color: var(--gold);
+            text-align: center;
+        }
+
+        .content {
+            padding: 0 34px 28px;
+        }
+
+        .section {
+            padding-top: 20px;
+        }
+
+        .section-title {
+            margin: 0 0 10px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid var(--line);
+            color: var(--blue);
+            font-size: 1.18rem;
+            font-weight: 700;
+        }
+
+        .lead-text {
+            margin: 0;
+            color: #354354;
+        }
+
+        .lead-text + .lead-text {
+            margin-top: 10px;
+        }
+
+        .entry {
+            display: grid;
+            grid-template-columns: 132px minmax(0, 1fr);
+            gap: 16px;
+            align-items: start;
+            padding: 6px 0 12px;
+        }
+
+        .entry + .entry {
+            border-top: 1px solid var(--line);
+            padding-top: 14px;
+        }
+
+        .entry-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 98px;
+        }
+
+        .logo {
+            max-width: 104px;
+            max-height: 104px;
+            object-fit: contain;
+        }
+
+        .pub-video {
+            width: 100%;
+            max-width: 132px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #111;
+        }
+
+        .entry-title {
+            margin: 0 0 3px;
+            color: var(--ink);
+            font-size: 1.02rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .entry-meta {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 0.94rem;
+        }
+
+        .entry-text {
+            margin: 0;
+        }
+
+        .entry-text ul {
+            margin: 8px 0 0;
+            padding-left: 19px;
+        }
+
+        .entry-text li {
+            margin-bottom: 4px;
+        }
+
+        .authors {
+            color: var(--muted);
+        }
+
+        .authors strong {
+            color: var(--ink);
+        }
+
+        .venue {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .link-row {
+            margin-top: 7px;
+            color: var(--muted);
+        }
+
+        .pub-controls {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .pub-controls a,
+        .topic-line a {
+            color: var(--link);
+            font-weight: 400;
+        }
+
+        .pub-controls a.activated,
+        .topic-line a.activated {
+            color: var(--ink);
+            cursor: default;
+        }
+
+        .topic-line {
+            margin: -4px 0 10px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .award-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .award-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 7px 0;
+        }
+
+        .year {
+            flex: 0 0 auto;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .skill-group {
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fbfbf9;
+        }
+
+        .skill-group h3 {
+            margin: 0 0 8px;
+            color: var(--blue);
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+
+        .skill-group p {
+            margin: 0;
+            color: #354354;
+        }
+
+        .footer {
+            padding: 24px 34px 30px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 767px) {
+            .site-shell {
+                width: 100%;
+            }
+
+            .hero,
+            .content,
+            .footer {
+                padding-left: 22px;
+                padding-right: 22px;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .avatar {
+                margin-bottom: 18px;
+            }
+
+            .contact-list {
+                justify-content: center;
+            }
+
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .entry-media {
+                justify-content: flex-start;
+            }
+
+            .pub-video {
+                max-width: 220px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main class="site-shell">
+    <header class="hero">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-md-3 text-md-right">
+                <img class="avatar" src="pics/zhang7.png" alt="Yixin Zhang">
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <h1 class="name">Yixin Zhang</h1>
+                <p class="affiliation">Master in Robotics, Georgia Institute of Technology</p>
+                <ul class="contact-list">
+                    <li><i class="fa fa-envelope"></i><a href="mailto:yzhang4179@gatech.edu">yzhang4179@gatech.edu</a></li>
+                    <li><i class="fa fa-github"></i><a href="https://github.com/yzhang4179">Github</a></li>
+                    <li><i class="fa fa-twitter"></i><a href="https://x.com/yzhang4179">Twitter</a></li>
+                    <li><i class="fa fa-graduation-cap"></i><a href="https://scholar.google.com/citations?user=Wy4H2rsAAAAJ&amp;hl=zh-CN">Google Scholar</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <section class="section" id="research">
+            <p class="lead-text">
+                I am a Master&rsquo;s student in Robotics at the
+                <a href="https://www.gatech.edu/">Georgia Institute of Technology</a>, working with Prof.
+                <a href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu</a> and Prof.
+                <a href="https://yongxin.ae.gatech.edu/">Yongxin Chen</a>. I maintain a GPA of 4.0/4.0 and expect to
+                graduate in May 2026.
+            </p>
+            <p class="lead-text">
+                My research focuses on developing generative algorithms for long-horizon imitation learning and planning.
+                I am particularly interested in compositional diffusion sampling methods that synthesize coherent
+                long-horizon plans from short-horizon data. I also work on leveraging video-action models to improve
+                policy learning through joint training with visual prediction and action generation.
+            </p>
+        </section>
+
+        <section class="section" id="publications">
+            <h2 class="section-title">
+                Publications
+                <span class="pub-controls">
+                    (
+                    <a class="activated" href="#publications">show selected</a> /
+                    <a href="#publications">show by date</a> /
+                    <a href="#topic-decision-making">show by topic</a>
+                    )
+                </span>
+            </h2>
+            <p class="topic-line" id="topic-decision-making"><strong>Topics:</strong> <a class="activated" href="#topic-decision-making">Decision Making</a></p>
+            <article class="entry">
+                <div class="entry-media">
+                    <video class="pub-video" playsinline autoplay muted loop preload="metadata">
+                        <source src="data/projects/2026-iclr-cvp.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="entry-title">Compositional Visual Planning via Inference-Time Diffusion Scaling</h3>
+                    <p class="entry-text authors">
+                        <strong>Yixin Zhang</strong>, Yunhao Luo, Utkarsh Mishra, Woochul Shin, Yongxin Chen, Danfei Xu.
+                    </p>
+                    <p class="entry-text"><span class="venue">International Conference on Learning Representations (ICLR), 2026</span></p>
+                    <p class="link-row">
+                        <a href="https://comp-visual-planning.github.io/">Project website</a> /
+                        <a href="https://openreview.net/forum?id=EEONns7ae4">OpenReview</a> /
+                        <a href="https://arxiv.org/abs/2603.02646">arXiv</a>
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <section class="section" id="experience">
+            <h2 class="section-title">Experience</h2>
+            <article class="entry">
+                <div class="entry-media">
+                    <img class="logo" src="data/rl2-logo.png" alt="Robot Learning and Reasoning Lab logo">
+                </div>
+                <div>
+                    <h3 class="entry-title">Robot Learning and Reasoning Lab</h3>
+                    <p class="entry-meta">Research Assistant &middot; Sep. 2024 &ndash; Present &middot; Atlanta, Georgia</p>
+                    <div class="entry-text">
+                        <ul>
+                            <li><em>EgoWAM:</em> leveraging video-action models to improve policy learning through joint training with visual prediction and action generation.</li>
+                            <li><em>Compositional Visual Planning:</em> introducing an inference-time compositional sampling approach that scales to unseen and long-horizon reasoning tasks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article class="entry">
+                <div class="entry-media">
+                    <img class="logo" src="data/gt-logo.png" alt="Georgia Tech logo">
+                </div>
+                <div>
+                    <h3 class="entry-title">School of Interactive Computing, Georgia Tech</h3>
+                    <p class="entry-meta">Graduate Teaching Assistant &middot; Aug. 2025 &ndash; Present &middot; Atlanta, Georgia</p>
+                    <div class="entry-text">
+                        <ul>
+                            <li>CS7643 Deep Learning. Supervisor: Prof. Danfei Xu.</li>
+                            <li>CS8803 Advanced Mobile Robotics. Supervisor: Prof. Frank Dellaert.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="section" id="awards">
+            <h2 class="section-title">Selected Awards and Honors</h2>
+            <ul class="award-list">
+                <li><span>First-class Undergraduate Academic Scholarship.</span><span class="year">2021&ndash;2023</span></li>
+                <li><span>National Scholarship.</span><span class="year">2022</span></li>
+            </ul>
+        </section>
+
+        <section class="section" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills">
+                <div class="skill-group">
+                    <h3>Programming Languages</h3>
+                    <p>Python, C/C++, JavaScript, HTML/CSS, MATLAB.</p>
+                </div>
+                <div class="skill-group">
+                    <h3>Machine Learning</h3>
+                    <p>PyTorch, multi-node multi-GPU training.</p>
+                </div>
+                <div class="skill-group">
+                    <h3>Robotics</h3>
+                    <p>ROS, Gazebo, PyBullet, MuJoCo, SAPIEN.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        Website template adapted from <a href="https://devinluo27.github.io/">Yunhao Luo</a>.
+    </footer>
+</main>
+</body>
+</html>
