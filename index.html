@@ -279,6 +279,35 @@
             color: #354354;
         }
 
+        .robot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .robot-card {
+            margin: 0;
+        }
+
+        .robot-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            padding: 8px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fbfbf9;
+        }
+
+        .robot-card figcaption {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
         .footer {
             padding: 24px 34px 30px;
             border-top: 1px solid var(--line);
@@ -326,6 +355,18 @@
 
             .skills {
                 grid-template-columns: 1fr;
+            }
+
+            .robot-grid {
+                gap: 8px;
+            }
+
+            .robot-card img {
+                padding: 4px;
+            }
+
+            .robot-card figcaption {
+                font-size: 0.82rem;
             }
         }
     </style>
@@ -458,6 +499,24 @@
                     <h3>Robotics</h3>
                     <p>ROS, Gazebo, PyBullet, MuJoCo, SAPIEN.</p>
                 </div>
+            </div>
+        </section>
+
+        <section class="section" id="real-robot-experience">
+            <h2 class="section-title">Real Robot Experience</h2>
+            <div class="robot-grid">
+                <figure class="robot-card">
+                    <img src="pics/rby1.png" alt="RBY1 robot">
+                    <figcaption>RBY1</figcaption>
+                </figure>
+                <figure class="robot-card">
+                    <img src="pics/panda.png" alt="Panda robot arm">
+                    <figcaption>Panda</figcaption>
+                </figure>
+                <figure class="robot-card">
+                    <img src="pics/arx.png" alt="ARX robot arm">
+                    <figcaption>ARX Arm</figcaption>
+                </figure>
             </div>
         </section>
     </div>
